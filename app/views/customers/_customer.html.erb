@@ -1,0 +1,21 @@
+<div class="bg-white rounded-lg shadow-lg p-4">
+  <div class="flex items-center mb-4">
+    <% if customer.image.attached? %>
+      <%= image_tag customer.image.variant(resize_to_limit: [100, 100]) %>
+    <% else %>
+      <div class="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center">
+        <span class="text-gray-600 text-2xl font-semibold uppercase">
+          <%= customer.full_name[0] %>
+        </span>
+      </div>
+    <% end %>
+    <div class="ml-4">
+      <h2 class="text-xl font-semibold text-gray-800"><%= customer.full_name %></h2>
+      <p class="text-sm text-gray-600"><%= customer.email %></p>
+      <p class="text-sm text-gray-600"><%= customer.phone_number %></p>
+    </div>
+  </div>
+  <div class="mt-2">
+    <p class="text-sm text-gray-700"><%= customer.notes %></p>
+  </div>
+</div>
